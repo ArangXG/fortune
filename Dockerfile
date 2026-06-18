@@ -15,7 +15,8 @@ ENV PROXY=global.pearlfortune.org:443
 ENV PRL_ADDRESS=your-prl-address-here
 ENV WORKER=
 
-CMD /usr/local/bin/miner \
+CMD nvidia-smi -q -d POWER && \
+    /usr/local/bin/miner \
     --proxy ${PROXY} \
     --address ${PRL_ADDRESS} \
     --worker ${WORKER:-$(hostname)} \
